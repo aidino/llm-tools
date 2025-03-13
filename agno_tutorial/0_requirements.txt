@@ -1,0 +1,7 @@
+openai 
+agno
+duckduckgo-search
+lancedb
+tantivy
+pypdf
+python-dotenv
