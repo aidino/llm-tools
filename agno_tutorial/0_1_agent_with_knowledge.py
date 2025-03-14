@@ -17,6 +17,22 @@ agent = Agent(
         'Nếu câu hỏi cần tìm kiếm thông tin cập nhật trên mạng internet thì hãy tìm kiếm trên web và trả lời dựa trên đó',
         'Ưu tiên kiến thức trong tài liệu knowledge base, tài liệu đính kèm hơn là tìm kiếm trên internet'
     ],
-    knowledge=PDFKnowledgeBase(urls)
+    knowledge=PDFKnowledgeBase(
+        path='data/huong-dan-su-dung-vneid.pdf', 
+        vector_db=LanceDb(
+            uri='temp/lancedb',
+            table_name='vneid',
+            search_type=SearchType.hybrid,
+            embedder=OpenAIEmbedder(id='text-embedding-3-small'),
+        ),
+    ),
+    tools=[DuckDuckGoTools()],
+    show_tool_calls=True,
+    markdown=True
 )
 
+if agent.knowledge is not None:
+    agent.knowledge.load()
+
+
+agent.print_response("Các bước để đăng ký định danh mức 2")

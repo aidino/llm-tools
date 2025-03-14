@@ -4,4 +4,7 @@ duckduckgo-search
 lancedb
 tantivy
 pypdf
+yfinance
 python-dotenv
+sqlalchemy
+fastapi[standard]
