@@ -1,0 +1,6 @@
+ollama 
+agno
+sqlalchemy 
+psycopg 
+duckduckgo-search
+pgvector

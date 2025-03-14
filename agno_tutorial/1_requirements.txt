@@ -1,3 +1,0 @@
-openai 
-exa-py 
-agno
